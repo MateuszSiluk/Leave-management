@@ -14,34 +14,40 @@ namespace Leave_management.Repository
         {
             _db = db;
         }
-        public bool Create(LeaveAllocation entity)
+        public bool Create(LeaveHistory entity)
         {
-            throw new NotImplementedException();
+            _db.LeaveHistories.Add(entity);
+            return Save();
         }
 
-        public bool Delete(LeaveAllocation entity)
+        public bool Delete(LeaveHistory entity)
         {
-            throw new NotImplementedException();
+            _db.LeaveHistories.Remove(entity);
+            return Save();
         }
 
-        public ICollection<LeaveAllocation> FindAll()
+        public ICollection<LeaveHistory> FindAll()
         {
-            throw new NotImplementedException();
+            var LeaveHistorys = _db.LeaveHistories.ToList();
+            return LeaveHistorys;
         }
 
-        public LeaveAllocation FindByID(int id)
+        public LeaveHistory FindByID(int id)
         {
-            throw new NotImplementedException();
+            var LeaveHistory = _db.LeaveHistories.Find(id);
+            return LeaveHistory;
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var changes = _db.SaveChanges();
+            return changes > 0;
         }
 
-        public bool Update(LeaveAllocation entity)
+        public bool Update(LeaveHistory entity)
         {
-            throw new NotImplementedException();
+            _db.LeaveHistories.Update(entity);
+            return Save();
         }
     }
 }
