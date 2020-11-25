@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Leave_management.Contracts;
+using Leave_management.Data;
+using Leave_management.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -23,7 +25,9 @@ namespace Leave_management.Controllers
         // GET: LeaveTypesController
         public ActionResult Index()
         {
-            return View();
+            var leaveTypes = _repo.FindAll().ToList();
+            var model = _mapper.Map<List<LeaveType>, List<DetailsLeaveTypeVM>>(leaveTypes);
+            return View(model);
         }
 
         // GET: LeaveTypesController/Details/5
