@@ -28,7 +28,11 @@
             
             <td>
                 
-                @Html.ActionLink("Allocate To Emplyes", "SetLeave", new {id=item.Id })
+               @* @Html.ActionLink("Allocate To Emplyes", "SetLeave", new { id = item.Id }, new {@class = "btn btn-success" }) *@
+
+                <a class="btn btn-outline-success" asp-action="SetLeave" asp-all-route-id="@item.Id">
+                    <i class="fa fa-pencil"></i> Allocate to Emplyees
+                </a>
                
                 
             </td>

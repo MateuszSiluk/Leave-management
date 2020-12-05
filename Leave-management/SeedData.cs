@@ -1,24 +1,25 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Leave_management.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace Leave_management
 {
     public static class SeedData
     {
-        public static void Seed(UserManager<IdentityUser> userManager,
+        public static void Seed(UserManager<Employee> userManager,
             RoleManager<IdentityRole> roleManager)
         {
             SeedRoles(roleManager);
             SeedUsers(userManager);
         }
 
-        private static void SeedUsers(UserManager<IdentityUser> userManager)
+        private static void SeedUsers(UserManager<Employee> userManager)
         {
             if (userManager.FindByNameAsync("admin").Result == null)
             {
-                var user = new IdentityUser
+                var user = new Employee
                 {
-                    UserName = "admin",
-                    Email = "admin@localhost"
+                    UserName = "admin@localhost.com",
+                    Email = "admin@localhost.com"
                 };
                 var result = userManager.CreateAsync(user, "P4ssw0rd1!").Result;
                 if (result.Succeeded)
