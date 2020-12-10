@@ -26,6 +26,7 @@ namespace Leave_management.Models
 
     public class AdminLeaveRequestViewVM
     {
+
         public int TotalRequests { get; set; }
         public int ApprovedRequests { get; set; }
         public int PendingRequests { get; set; }
