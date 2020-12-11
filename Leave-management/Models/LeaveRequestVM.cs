@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,8 +12,13 @@ namespace Leave_management.Models
         public int Id { get; set; }
         
         public EmployeeVM RequestiongEmployee { get; set; }
+        [Display(Name ="Emplyee Name")]
         public string RequestingEmployeeId { get; set; }
+        [Display(Name = "Start Date")]
+        [Required]
         public DateTime StartDate { get; set; }
+        [Display(Name = "End Date")]
+        [Required]
         public DateTime EndDate { get; set; }
         
         public LeaveTypeVM LeaveType { get; set; }
@@ -36,5 +42,18 @@ namespace Leave_management.Models
         [Display(Name = "Rejected Requests")]
         public int RejectedRequests { get; set; }
         public List<LeaveRequestVM> LeaveRequests { get; set; }
+    }
+
+    public class CreateLeaveRequestVM
+    {
+        [Display(Name = "Start Date")]
+        [Required]
+        public DateTime StartDate { get; set; }
+        [Display(Name = "End Date")]
+        [Required]
+        public DateTime EndDate { get; set; }
+        public IEnumerable<SelectListItem> LeaveTypes { get; set; }
+        [Display(Name ="Leave Type")]
+        public int LeaveTypeId { get; set; }
     }
 }
