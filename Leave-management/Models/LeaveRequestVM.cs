@@ -29,6 +29,7 @@ namespace Leave_management.Models
         
         public EmployeeVM ApprovedBy { get; set; }
         public string ApprovedById { get; set; }
+        
     }
 
     public class AdminLeaveRequestViewVM
@@ -48,10 +49,10 @@ namespace Leave_management.Models
     {
         [Display(Name = "Start Date")]
         [Required]
-        public DateTime StartDate { get; set; }
+        public string StartDate { get; set; }
         [Display(Name = "End Date")]
         [Required]
-        public DateTime EndDate { get; set; }
+        public string EndDate { get; set; }
         public IEnumerable<SelectListItem> LeaveTypes { get; set; }
         [Display(Name ="Leave Type")]
         public int LeaveTypeId { get; set; }
